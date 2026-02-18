@@ -49,11 +49,3 @@ Git の作法を守りながら機能を追加してください。
 ### 提出方法
 
 push するだけ！ PR を作成するとボーナス評価があります。
-
-### GitHub Secrets の設定
-
-| Secret 名 | 値 |
-|---|---|
-| `GIT_EVAL_URL` | 管理者から通知された Webhook URL |
-| `GIT_EVAL_SECRET` | 管理者から通知された Secret キー |
-| `ANTHROPIC_API_KEY` | Claude API キー（LLM 評価に必要） |
