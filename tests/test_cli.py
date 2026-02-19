@@ -11,11 +11,13 @@ class TestFormatReport:
             "words": 20,
             "lines": 5,
             "sentences": 3,
+            "paragraphs": 2,
         }
         report = format_report(stats)
         assert "文字数:         100" in report
         assert "単語数:         20" in report
         assert "行数:           5" in report
+        assert "段落数:         2" in report
 
     def test_report_with_frequencies(self):
         stats = {
@@ -24,6 +26,7 @@ class TestFormatReport:
             "words": 3,
             "lines": 1,
             "sentences": 1,
+            "paragraphs": 1,
         }
         frequencies = [("hello", 5), ("world", 3)]
         report = format_report(stats, frequencies)
@@ -38,6 +41,7 @@ class TestFormatReport:
             "words": 0,
             "lines": 0,
             "sentences": 0,
+            "paragraphs": 0,
         }
         report = format_report(stats)
         assert "単語出現頻度" not in report

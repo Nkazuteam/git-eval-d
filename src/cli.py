@@ -18,6 +18,7 @@ def format_report(stats, frequencies=None):
         f"単語数:         {stats['words']}",
         f"行数:           {stats['lines']}",
         f"文数:           {stats['sentences']}",
+        f"段落数:         {stats['paragraphs']}",
     ]
 
     if frequencies:
