@@ -49,6 +49,14 @@ def count_sentences(text):
     return len([s for s in sentences if s.strip()])
 
 
+def count_paragraphs(text):
+    """テキストの段落数を返す。空行で区切られたブロックを段落とする。"""
+    if not text.strip():
+        return 0
+    paragraphs = re.split(r'\n\s*\n', text.strip())
+    return len([p for p in paragraphs if p.strip()])
+
+
 def get_word_frequencies(text, top_n=10):
     """テキスト内の単語出現頻度を返す。
 
@@ -73,4 +81,5 @@ def analyze(text):
         "words": count_words(text),
         "lines": count_lines(text),
         "sentences": count_sentences(text),
+        "paragraphs": count_paragraphs(text),
     }

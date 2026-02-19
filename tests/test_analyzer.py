@@ -7,6 +7,7 @@ from src.analyzer import (
     count_characters,
     count_characters_no_spaces,
     count_lines,
+    count_paragraphs,
     count_sentences,
     count_words,
     get_word_frequencies,
@@ -83,6 +84,22 @@ class TestCountSentences:
         assert count_sentences("Really? Yes! OK.") == 3
 
 
+class TestCountParagraphs:
+    def test_empty_string(self):
+        assert count_paragraphs("") == 0
+
+    def test_single_paragraph(self):
+        assert count_paragraphs("Hello world.") == 1
+
+    def test_multiple_paragraphs(self):
+        text = "First paragraph.\n\nSecond paragraph.\n\nThird."
+        assert count_paragraphs(text) == 3
+
+    def test_ignores_single_newlines(self):
+        text = "Line one.\nLine two."
+        assert count_paragraphs(text) == 1
+
+
 class TestGetWordFrequencies:
     def test_empty_string(self):
         assert get_word_frequencies("") == []
@@ -111,6 +128,7 @@ class TestAnalyze:
             "words",
             "lines",
             "sentences",
+            "paragraphs",
         }
         assert set(result.keys()) == expected_keys
 
